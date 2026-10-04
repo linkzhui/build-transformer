@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "build-transformer"
+version = "0.1.0"
+description = "A compact PyTorch Transformer encoder starter for sequence modeling"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.2", "tokenizers>=0.20", "tensorboard>=2.16", "tqdm>=4.66"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+train-transformer = "build_transformer.train:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
